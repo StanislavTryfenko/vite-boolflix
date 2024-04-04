@@ -1,7 +1,6 @@
 <script>
-import { state } from '../assets/state.js'
 import axios from 'axios';
-import { translate } from '../assets/languageToNationConverter.js'
+import { translate } from '../assets/js_utility/languageToNationConverter.js'
 
 export default {
   name: 'AppHeader',
@@ -9,13 +8,14 @@ export default {
     return {
       searchBarText: '',
       filmList: [],
+      seriesList: [],
     }
   },
   methods: {
     searchBar() {
       const options = {
         method: 'GET',
-        url: 'https://api.themoviedb.org/3/search/movie',
+        url: 'https://api.themoviedb.org/3/search/multi',
         params: { query: this.searchBarText },
         headers: {
           accept: 'application/json',
@@ -24,9 +24,13 @@ export default {
       }
       axios.request(options)
         .then(response => {
-          this.filmList = response.data.results;
-          console.log(response);
-          console.log(this.filmList);
+          const results = response.data.results;
+
+          this.filmList = results.filter(item => item.media_type === 'movie');
+          this.seriesList = results.filter(item => item.media_type === 'tv');
+        
+          //console.log(response);
+          //console.log(this.filmList, this.seriesList);
         })
     },
 
@@ -34,18 +38,28 @@ export default {
       return translate(language);
     }
   },
-
 }
 </script>
 
 <template>
   <input type="text" name="" id="" @keyup.enter="searchBar()" v-model="searchBarText">
-  <ul v-for="(film, id) in filmList" :key="id">
+
+   <ul v-for="(film, id) in filmList" :key="id">FILM
     <li>titolo {{ film.title }}</li>
     <li>titolo originale {{ film.original_title }}</li>
     <li>Lingua <span><img :src="'https://flagcdn.com/16x12/' + translatedFlag(film.original_language) + '.webp'"></span></li>
     <li>Voto {{ film.vote_average }}</li>
   </ul>
+
+<hr>
+
+  <ul v-for="(serie, id) in seriesList" :key="id">SERIE
+    <li>titolo {{ serie.name }}</li>
+    <li>titolo originale {{ serie.original_name }}</li>
+    <li>Lingua <span><img :src="'https://flagcdn.com/16x12/' + translatedFlag(serie.original_language) + '.webp'"></span></li>
+    <li>Voto {{ serie.vote_average }}</li>
+  </ul>
+  
 </template>
 
 <style scoped></style>

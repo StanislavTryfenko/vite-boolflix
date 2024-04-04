@@ -3,11 +3,11 @@ export function translate(language) {
     //search code and when a code is === at input returns his flag 
     return converter.find(item => item.code === language).flag
     } else {
-        console.log('missing conversion lenguage-flag for: ', language);
+        console.log('missing conversion language-flag for:', language, 'language');
     }
 }
 
-export const converter =
+const converter =
 [ //to add some more coiuntryes use code: ISO 639 language codes & flag: ISO_3166-1_alpha-2
 { code: 'af', name: 'Afrikaans', flag: 'za' },
 { code: 'sq', name: 'Shqip', flag: 'al' },

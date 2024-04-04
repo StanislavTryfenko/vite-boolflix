@@ -16,7 +16,7 @@ export default {
 
   <AppHeader />
   
-  <AppMain v-for="(film) in filmList"/>
+  <AppMain />
 
 </template>
 

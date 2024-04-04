@@ -26,6 +26,7 @@ export default {
         .then(response => {
           const results = response.data.results;
 
+          //splitting series & films
           this.filmList = results.filter(item => item.media_type === 'movie');
           this.seriesList = results.filter(item => item.media_type === 'tv');
         
@@ -49,6 +50,7 @@ export default {
     <li>titolo originale {{ film.original_title }}</li>
     <li>Lingua <span><img :src="'https://flagcdn.com/16x12/' + translatedFlag(film.original_language) + '.webp'"></span></li>
     <li>Voto {{ film.vote_average }}</li>
+    <li><img :src="'https://image.tmdb.org/t/p/w342/' + film.poster_path"></li>
   </ul>
 
 <hr>
@@ -58,6 +60,7 @@ export default {
     <li>titolo originale {{ serie.original_name }}</li>
     <li>Lingua <span><img :src="'https://flagcdn.com/16x12/' + translatedFlag(serie.original_language) + '.webp'"></span></li>
     <li>Voto {{ serie.vote_average }}</li>
+    <img :src="'https://image.tmdb.org/t/p/w342/' + serie.poster_path">
   </ul>
   
 </template>

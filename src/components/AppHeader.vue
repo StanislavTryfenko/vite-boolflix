@@ -1,6 +1,7 @@
 <script>
 import { state } from '../assets/state.js'
 import axios from 'axios';
+import { translate, converter } from '../assets/languageToNationConverter.js'
 
 export default {
   name: 'AppHeader',
@@ -28,16 +29,23 @@ export default {
           console.log(this.filmList);
         })
     },
-  }
+
+    translatedFlag(language) {
+      const flag = translate(language);
+      console.log(language, flag);
+      return flag;
+    }
+  },
+
 }
 </script>
 
 <template>
-  <input type="text" name="" id="" @keyup.enter="searchBar()" v-model="this.searchBarText">
+  <input type="text" name="" id="" @keyup.enter="searchBar()" v-model="searchBarText">
   <ul v-for="(film, id) in filmList" :key="id">
     <li>titolo {{ film.title }}</li>
     <li>titolo originale {{ film.original_title }}</li>
-    <li>Lingua {{ film.original_language }}</li>
+    <li>Lingua <span><img :src="'https://flagcdn.com/16x12/' + translatedFlag(film.original_language) + '.webp'"></span></li>
     <li>Voto {{ film.vote_average }}</li>
   </ul>
 </template>

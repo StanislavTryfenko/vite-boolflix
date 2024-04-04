@@ -1,7 +1,7 @@
 <script>
 import { state } from '../assets/state.js'
 import axios from 'axios';
-import { translate, converter } from '../assets/languageToNationConverter.js'
+import { translate } from '../assets/languageToNationConverter.js'
 
 export default {
   name: 'AppHeader',
@@ -19,7 +19,7 @@ export default {
         params: { query: this.searchBarText },
         headers: {
           accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYzA3NDc4MTljYjljM2YwNDVmYjNjMTAxYTU1ZTZlMSIsInN1YiI6IjY2MGQwZjJmYzhhNWFjMDE3YzdhZDY0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.2hm9xILiqLXjZ-QbnYhNfhSVDLUSlSz85smKDgNCnW0'
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOTliZWVjNDEzN2I1YjJmYTA0MjMwOWQzNWEwYjU2YyIsInN1YiI6IjY2MGQwZjJmYzhhNWFjMDE3YzdhZDY0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iR7fxDnVDZM1HjmgE6cwSw_oX2I1k3i4gJrUXVGZ4_E'
         }
       }
       axios.request(options)
@@ -31,9 +31,7 @@ export default {
     },
 
     translatedFlag(language) {
-      const flag = translate(language);
-      console.log(language, flag);
-      return flag;
+      return translate(language);
     }
   },
 

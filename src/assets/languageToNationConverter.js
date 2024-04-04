@@ -1,9 +1,15 @@
 export function translate(language) {
+    if(converter.find(item => item.code === language)){
+    //search code and when a code is === at input returns his flag 
     return converter.find(item => item.code === language).flag
+    } else {
+        console.log('missing conversion lenguage-flag for: ', language);
+    }
 }
 
 export const converter =
-[{ code: 'af', name: 'Afrikaans', flag: 'za' },
+[ //to add some more coiuntryes use code: ISO 639 language codes & flag: ISO_3166-1_alpha-2
+{ code: 'af', name: 'Afrikaans', flag: 'za' },
 { code: 'sq', name: 'Shqip', flag: 'al' },
 { code: 'am', name: 'አማርኛ', flag: 'et' },
 { code: 'en-AU', name: 'English (Australia)', flag: 'au' },
@@ -22,7 +28,7 @@ export const converter =
 { code: 'et', name: 'Eesti', flag: 'ee' },
 { code: 'tl', name: 'Filipino', flag: 'ph' },
 { code: 'fi', name: 'Suomi', flag: 'fi' },
-{ code: 'fr-FR', name: 'Français (France)', flag: 'fe' },
+{ code: 'fr', name: 'Français (France)', flag: 'fr' },
 { code: 'fr-CA', name: 'Français (Canada)', flag: 'ca' },
 { code: 'gl', name: 'Galego', flag: 'es' },
 { code: 'ka', name: 'ქართული', flag: 'ge' },
@@ -84,6 +90,7 @@ export const converter =
 { code: 'es-US', name: 'Español (Estados Unidos)', flag: 'us' },
 { code: 'es', name: 'Español (España)', flag: 'es' },
 { code: 'sv', name: 'Svenska', flag: 'se' },
+{ code: 'bs', name: 'Bosnian', flag: 'ba'}
 ];
 
 

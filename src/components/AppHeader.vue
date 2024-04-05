@@ -1,5 +1,5 @@
 <script>
-import {state} from '../assets/state.js'
+import { state } from '../assets/state.js'
 import axios from 'axios';
 
 export default {
@@ -37,7 +37,19 @@ export default {
 </script>
 
 <template>
-  <input type="text" name="" id="" @keyup.enter="searchBar()" v-model="state.searchBarText">
+  <header>
+    <div class="nav">
+      <div class="logo">BOOFLIX</div>
+      <button>Home</button>
+      <button>Series</button>
+      <button>Movie</button>
+    </div>
+
+    <div class="searcher">
+      <label for="inputSearch"><i class="fa-solid fa-magnifying-glass"></i></label>
+      <input type="text" name="inputSearch" id="" @keyup.enter="searchBar()" v-model="state.searchBarText">
+    </div>
+  </header>
 </template>
 
 <style scoped></style>

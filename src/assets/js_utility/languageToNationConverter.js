@@ -3,7 +3,7 @@ export function translate(language) {
     //search code and when a code is === at input returns his flag 
     return converter.find(item => item.code === language).flag
     } else {
-        console.log('missing conversion language-flag for:', language, 'language');
+        console.log('missing conversion language-flag for:', language, 'language iso 639 language code');
     }
 }
 
@@ -92,7 +92,3 @@ const converter =
 { code: 'sv', name: 'Svenska', flag: 'se' },
 { code: 'bs', name: 'Bosnian', flag: 'ba'}
 ];
-
-
-
-

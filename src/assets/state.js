@@ -1,4 +1,6 @@
 import { reactive } from "vue";
+import { translate } from '../assets/js_utility/languageToNationConverter.js'
+
 
 export const state = reactive({
     searchBarText: '',

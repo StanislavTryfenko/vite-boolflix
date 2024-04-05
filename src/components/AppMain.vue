@@ -1,28 +1,25 @@
 <script>
-import {state} from '../assets/state.js'
-
+import { state } from '../assets/state.js'
 import AppSearchCard from './AppSearchCard.vue';
 
 export default {
-    name: 'AppMain',
-    components: {
-        AppSearchCard
-    },
-    data() {
-      return {
-        state
-      }
-    },
-    
+  name: 'AppMain',
+  components: {
+    AppSearchCard
+  },
+  data() {
+    return {
+      state
+    }
+  },
+
 }
 </script>
 
 <template>
-
-  <AppSearchCard />
-
+  <main>
+    <AppSearchCard />
+  </main>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

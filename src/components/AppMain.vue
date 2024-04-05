@@ -18,7 +18,7 @@ export default {
 
 <template>
   <main>
-    <AppSearchCard />
+    <AppSearchCard   />
   </main>
 </template>
 

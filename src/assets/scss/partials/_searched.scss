@@ -1,0 +1,12 @@
+.info {
+    position: absolute;
+    width: 342px;
+    height: 513px;
+    background-color: black;
+    color: antiquewhite;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    gap: 1rem;
+    z-index: 10000000;
+  }

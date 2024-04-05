@@ -11,7 +11,6 @@ export default {
   },
   methods: {
     searchBar() {
-      console.log(state.empty, state.filmList);
       const options = {
         method: 'GET',
         url: 'https://api.themoviedb.org/3/search/multi',

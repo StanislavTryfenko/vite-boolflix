@@ -33,7 +33,7 @@ export default {
 <template>
   <div v-if="(state.filmList.length > 0)">
     <h2>SEARCHED FILMS:</h2>
-    <carousel :items-to-show="5" :wrap-around="true" :itemsToScroll="4" :transition="1000">
+    <carousel :items-to-show="5" :wrap-around="(state.filmList.length > 5)" :itemsToScroll="4" :transition="1000">
       <slide v-for="(film) in state.filmList" :key="film.id">
         <div class="info" v-show="overing">
           <h2>Title:{{ film.title }}</h2>
@@ -48,15 +48,15 @@ export default {
       </slide>
 
       <template #addons>
-        <navigation />
-        <pagination />
+        <navigation v-if="(state.filmList.length > 5)"/>
+        <pagination v-if="(state.filmList.length > 5)"/>
       </template>
     </carousel>
   </div>
 
   <div v-if="(state.seriesList.length > 0)">
     <h2>SEARCHED SERIES:</h2>
-    <carousel :items-to-show="5" :wrap-around="true" :itemsToScroll="4" :transition="1000">
+    <carousel :items-to-show="5" :wrap-around="(state.seriesList.length > 5)" :itemsToScroll="4" :transition="1000">
       <slide v-for="(serie) in state.seriesList" :key="serie.id">
         <div class="info" v-show="overing">
           <h2>Title:{{ serie.name }}</h2>
@@ -72,8 +72,8 @@ export default {
       </slide>
 
       <template #addons>
-        <navigation />
-        <pagination />
+        <navigation v-if="(state.seriesList.length > 5)"/>
+        <pagination v-if="(state.seriesList.length > 5)"/>
       </template>
     </carousel>
   </div>

@@ -11,16 +11,16 @@ export default {
   },
   methods: {
     searchBar() {
-      const options = {
+       const multi = {
         method: 'GET',
         url: 'https://api.themoviedb.org/3/search/multi',
         params: { query: state.searchBarText },
         headers: {
           accept: 'application/json',
           Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOTliZWVjNDEzN2I1YjJmYTA0MjMwOWQzNWEwYjU2YyIsInN1YiI6IjY2MGQwZjJmYzhhNWFjMDE3YzdhZDY0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iR7fxDnVDZM1HjmgE6cwSw_oX2I1k3i4gJrUXVGZ4_E'
-        }
+        } 
       }
-      axios.request(options)
+      axios.request(multi)
         .then(response => {
           const results = response.data.results;
 
@@ -30,7 +30,7 @@ export default {
 
           //console.log(response);
           console.log(state.filmList, state.seriesList);
-        })
+        }) 
     },
   },
 }

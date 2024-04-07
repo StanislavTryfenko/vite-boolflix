@@ -6,6 +6,8 @@ export const state = reactive({
     searchBarText: '',
     filmList: [],
     seriesList: [],
+    overingId: null,
+    actorsList: [],
 
     translatedFlag(language) {
         return translate(language);
@@ -29,5 +31,5 @@ export const state = reactive({
         }
 
         return ratingStars
-    }
+    },
 });

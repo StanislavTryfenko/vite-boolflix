@@ -47,7 +47,7 @@ export default {
 
     <div class="searcher">
       <label for="inputSearch"><i class="fa-solid fa-magnifying-glass"></i></label>
-      <input type="text" name="inputSearch" id="" @keyup.enter="searchBar()" v-model="state.searchBarText">
+      <input type="text" name="" id="inputSearch" @keyup.enter="searchBar()" v-model="state.searchBarText">
     </div>
   </header>
 </template>

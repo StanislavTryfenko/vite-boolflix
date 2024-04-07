@@ -8,6 +8,7 @@ export const state = reactive({
     seriesList: [],
     overingId: null,
     actorsList: [],
+    genresList: [],
 
     translatedFlag(language) {
         return translate(language);
